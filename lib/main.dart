@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:android_intent/android_intent.dart';
 import 'package:hello_word/Dashboard.dart';
 
 void main() => runApp(MyApp());
@@ -30,10 +29,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return MyHomePageState();
-  }
+  State<StatefulWidget> createState() => MyHomePageState();
 }
 
 class MyHomePageState extends State<MyHomePage> {
