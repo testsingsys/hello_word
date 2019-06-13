@@ -34,10 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     Widget titleText = Container(
       width: 100,
-      margin: EdgeInsets.fromLTRB(20, 100, 20, 20),
+      margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
       alignment: Alignment.center,
       child: Center(
-        child: new Text("Hello Word !"),
+        child: new Text("Hello Word !",style: TextStyle(fontSize: 30),),
       ),
     );
 
@@ -75,6 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     
     Widget logo=Container(
+      alignment: Alignment.center,
+        margin: EdgeInsets.fromLTRB(20, 50, 20, 20),
       child: Image.asset("assets/logo.png",width: 100,height: 100,)
     );
 
