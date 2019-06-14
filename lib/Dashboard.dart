@@ -30,6 +30,16 @@ class MyDashboardState extends State<MyDashboard> {
 
   @override
   Widget build(BuildContext context) {
+    Widget card_list = Card(
+      child: Expanded(
+          child: FittedBox(
+              child: Column(
+        children: <Widget>[
+          Image.network(
+              'https://tpc.googlesyndication.com/simgad/5662238301179412298'),
+        ],
+      ))),
+    );
     Widget titleText = Container(
       margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
       alignment: Alignment.center,
@@ -106,17 +116,66 @@ class MyDashboardState extends State<MyDashboard> {
             ),
           ),
         ),
+      ],
+    );
+
+    Widget widget_test = Row(
+      children: <Widget>[
         Expanded(
           child: FittedBox(
             child: Card(
               color: Colors.white,
               child: Container(
                 padding: EdgeInsets.all(10),
-                child: Image.asset('assets/img_hillel.png'),
+                child: Column(
+                  children: <Widget>[
+                    Image.network(
+                        'https://www.thedroidsonroids.com/wp-content/uploads/2019/01/flutter_blog-750x400.png'),
+                    Container(
+                      padding: EdgeInsets.all(10),
+                      child: Text("this is test post",
+                          style: TextStyle(fontSize: 60)),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        new Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.thumb_up,
+                                size: 60,
+                              ),
+                              Text(
+                                "Like",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                        new Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            children: <Widget>[
+                              Icon(
+                                Icons.chat,
+                                size: 60,
+                              ),
+                              Text(
+                                "Comment",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
-        ),
+        )
       ],
     );
 
@@ -127,7 +186,9 @@ class MyDashboardState extends State<MyDashboard> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: Column(children: <Widget>[header_image, widget]),
+      body: Center(
+        child: Column(children: <Widget>[widget, widget_test]),
+      ),
       drawer: listview,
       bottomSheet: BottomNavigationBar(items: [
         new BottomNavigationBarItem(
