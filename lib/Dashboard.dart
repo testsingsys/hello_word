@@ -44,39 +44,46 @@ class MyDashboardState extends State<MyDashboard> {
       ),
     );
 
-    Widget profileicon = Container(
-      child: Image.asset(imagePath),
-      height: 100,
-    );
+    Widget profileicon = Container(child: Image.asset(imagePath));
 
     Widget list(String data) {
-      Widget list = Container(
-        height: 50,
-        color: colorGenerator(),
-        child: Center(child: Text(data)),
+      Widget list = Column(
+        children: <Widget>[
+          Container(
+            height: 50,
+            color: colorGenerator(),
+            child: Center(child: Text(data)),
+          )
+        ],
       );
       return list;
     }
 
     ;
 
-    Widget listview = ListView.builder(
-      itemCount: 50,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: list("List $index"),
-          onTap: itemvalue,
-        );
-      },
+    Widget listview = Container(
+      color: Colors.white,
+      margin: EdgeInsets.fromLTRB(0, 25, 100, 0),
+      child: ListView.builder(
+        itemCount: 20,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: list("List $index"),
+            onTap: itemvalue,
+          );
+        },
+      ),
     );
 
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Dashboard"),
+        centerTitle: true,
       ),
-      body: listview,
-      bottomNavigationBar: BottomNavigationBar(items: [
+      body: Column(children: <Widget>[profileicon, titleText]),
+      drawer: listview,
+      bottomSheet: BottomNavigationBar(items: [
         new BottomNavigationBarItem(
             icon: Icon(Icons.home), title: Text("Home")),
         new BottomNavigationBarItem(
