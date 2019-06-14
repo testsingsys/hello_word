@@ -26,9 +26,6 @@ class MyDashboardState extends State<MyDashboard> {
   TextEditingController usernameEditController = TextEditingController();
   TextEditingController passwordEditController = TextEditingController();
 
-  String imagePath = 'assets/person.jpg';
-  String icon = 'assets/logo.png';
-
   Random _random = Random();
 
   @override
@@ -44,7 +41,8 @@ class MyDashboardState extends State<MyDashboard> {
       ),
     );
 
-    Widget profileicon = Container(child: Image.asset(imagePath));
+    Widget header_image = Container(child: Image.asset('assets/header_bg.jpg'));
+    Widget logo = Container(child: Image.asset('assets/logo.png'));
 
     Widget list(String data) {
       Widget list = Column(
@@ -58,8 +56,6 @@ class MyDashboardState extends State<MyDashboard> {
       );
       return list;
     }
-
-    ;
 
     Widget listview = Container(
       color: Colors.white,
@@ -75,13 +71,63 @@ class MyDashboardState extends State<MyDashboard> {
       ),
     );
 
+    Widget widget = Row(
+      children: <Widget>[
+        Expanded(
+          child: FittedBox(
+            child: Card(
+              color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Image.asset('assets/img_thomas.png'),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: FittedBox(
+            child: Card(
+              color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Image.asset('assets/img_scott.png'),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: FittedBox(
+            child: Card(
+              color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Image.asset('assets/img_simon.png'),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: FittedBox(
+            child: Card(
+              color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Image.asset('assets/img_hillel.png'),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
       appBar: AppBar(
         title: Text("Dashboard"),
         centerTitle: true,
+        elevation: 0,
       ),
-      body: Column(children: <Widget>[profileicon, titleText]),
+      body: Column(children: <Widget>[header_image, widget]),
       drawer: listview,
       bottomSheet: BottomNavigationBar(items: [
         new BottomNavigationBarItem(
