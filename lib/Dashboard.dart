@@ -27,6 +27,7 @@ class MyDashboardState extends State<MyDashboard> {
   TextEditingController passwordEditController = TextEditingController();
 
   String imagePath = 'assets/person.jpg';
+  String icon = 'assets/logo.png';
 
   Random _random = Random();
 
@@ -43,7 +44,10 @@ class MyDashboardState extends State<MyDashboard> {
       ),
     );
 
-    Widget profileicon = Container(child: Image.asset(imagePath));
+    Widget profileicon = Container(
+      child: Image.asset(imagePath),
+      height: 100,
+    );
 
     Widget list(String data) {
       Widget list = Container(
@@ -56,21 +60,31 @@ class MyDashboardState extends State<MyDashboard> {
 
     ;
 
+    Widget listview = ListView.builder(
+      itemCount: 50,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: list("List $index"),
+          onTap: itemvalue,
+        );
+      },
+    );
+
     return Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(
-          children: <Widget>[
-            ListView.builder(
-              itemCount: 50,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: list("List $index"),
-                  onTap: itemvalue,
-                );
-              },
-            )
-          ],
-        ));
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text("Dashboard"),
+      ),
+      body: listview,
+      bottomNavigationBar: BottomNavigationBar(items: [
+        new BottomNavigationBarItem(
+            icon: Icon(Icons.home), title: Text("Home")),
+        new BottomNavigationBarItem(
+            icon: Icon(Icons.history), title: Text("History")),
+        new BottomNavigationBarItem(
+            icon: Icon(Icons.exit_to_app), title: Text("Logout"))
+      ]),
+    );
   }
 
   Color colorGenerator() {
