@@ -130,7 +130,8 @@ class MyDashboardState extends State<MyDashboard> {
                 child: Column(
                   children: <Widget>[
                     Image.network(
-                        'https://www.thedroidsonroids.com/wp-content/uploads/2019/01/flutter_blog-750x400.png'),
+                      'https://www.thedroidsonroids.com/wp-content/uploads/2019/01/flutter_blog-750x400.png',
+                    ),
                     Container(
                       padding: EdgeInsets.all(10),
                       child: Text("this is test post",
@@ -187,7 +188,19 @@ class MyDashboardState extends State<MyDashboard> {
         elevation: 0,
       ),
       body: Center(
-        child: Column(children: <Widget>[widget, widget_test]),
+        child: ListView(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, 58),
+          children: <Widget>[
+            Column(children: <Widget>[
+              widget,
+              widget_test,
+              widget_test,
+              widget_test,
+              widget_test,
+              widget_test
+            ])
+          ],
+        ),
       ),
       drawer: listview,
       bottomSheet: BottomNavigationBar(items: [
@@ -213,5 +226,14 @@ class MyDashboardState extends State<MyDashboard> {
 
   void itemvalue() {
     Fluttertoast.showToast(msg: "Comming Soon");
+  }
+
+  void addItem() {
+    ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, int) {
+        return null;
+      },
+    );
   }
 }
