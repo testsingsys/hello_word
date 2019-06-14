@@ -28,9 +28,8 @@ class MySplashScreenState extends State<MySplashscreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.blue,
       body: Stack(
-        children: <Widget>[Image.asset('assets/splash.jpg')]
+      //  children: <Widget>[Image.asset('assets/launch_image.jpg')]
       ),
     );
   }
@@ -43,7 +42,7 @@ class MySplashScreenState extends State<MySplashscreen> {
 
   timer() async
   {
-    var duration=Duration(seconds: 3);
+    var duration=Duration(seconds: 0);
     return new Timer(duration,moveToHome);
   }
 
