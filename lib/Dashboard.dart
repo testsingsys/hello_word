@@ -100,6 +100,17 @@ class MyDashboardState extends State<MyDashboard> {
               color: Colors.white,
               child: Container(
                 padding: EdgeInsets.all(10),
+                child: Image.asset('assets/img_hillel.png'),
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: FittedBox(
+            child: Card(
+              color: Colors.white,
+              child: Container(
+                padding: EdgeInsets.all(10),
                 child: Image.asset('assets/img_scott.png'),
               ),
             ),
@@ -188,22 +199,22 @@ class MyDashboardState extends State<MyDashboard> {
         elevation: 0,
       ),
       body: Center(
-        child: ListView(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 58),
-          children: <Widget>[
-            Column(children: <Widget>[
-              widget,
-              widget_test,
-              widget_test,
-              widget_test,
-              widget_test,
-              widget_test
-            ])
-          ],
-        ),
+        child: Container(
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 90),
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, int) {
+                return widget_test;
+              },
+            )),
       ),
       drawer: listview,
-      bottomSheet: BottomNavigationBar(items: [
+      bottomSheet: Container(
+        color: Colors.blue,
+        child: widget,
+      ),
+      resizeToAvoidBottomInset: true,
+      bottomNavigationBar: BottomNavigationBar(items: [
         new BottomNavigationBarItem(
             icon: Icon(Icons.home), title: Text("Home")),
         new BottomNavigationBarItem(
@@ -226,14 +237,5 @@ class MyDashboardState extends State<MyDashboard> {
 
   void itemvalue() {
     Fluttertoast.showToast(msg: "Comming Soon");
-  }
-
-  void addItem() {
-    ListView.builder(
-      itemCount: 10,
-      itemBuilder: (context, int) {
-        return null;
-      },
-    );
   }
 }
