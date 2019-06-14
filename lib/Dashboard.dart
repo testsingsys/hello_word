@@ -61,23 +61,28 @@ class MyDashboardState extends State<MyDashboard> {
     return Scaffold(
       backgroundColor: Colors.white,
 
-        body: ListView.builder(
-          itemCount: 100,
-          itemBuilder: (context, index) {
-            return ListTile(
 
-              title: list("Entry $index"),
-              onTap: itemvalue,
+        body: Stack(
+          children: <Widget>[
+            profileicon,
+            ListView.builder(
+              itemCount: 100,
+              itemBuilder: (context, index) {
+                return ListTile(
 
-            );
-          },
+                  title: list("Entry $index"),
+                  onTap: itemvalue,
+
+                );
+              },
+            )
+          ],
         )
     );
   }
 
   Color colorGenerator()
   {
-
     Color color=Color.fromARGB(
       _random.nextInt(256),
       _random.nextInt(256),
